@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta name="cache-buster" content="1725826800000" />
+    <title>عيادة الأسنان المتقدمة - نظام إدارة شامل</title>
+    <meta name="description" content="نظام إدارة شامل لعيادة الأ��نان يشمل الحجز والمعاملات وملفات المرضى" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="module" src="/client/App.tsx"></script>
+    <script>
+      // Cache-busting script to force refresh if old files are detected
+      (function() {
+        var expectedAssets = ['index-iY03Z8M0.js', 'index-BeYEIDYk.css'];
+        var currentScripts = Array.from(document.querySelectorAll('script[src], link[href]'));
+        var hasOldAssets = currentScripts.some(function(element) {
+          var src = element.src || element.href;
+          return src && (src.includes('index-BWqxNr0M.js') || src.includes('index-CLxmYRhY.js'));
+        });
+
+        if (hasOldAssets && !sessionStorage.getItem('cache_busted')) {
+          sessionStorage.setItem('cache_busted', 'true');
+          window.location.reload(true);
+        }
+
+        // Clear all caches if available
+        if ('caches' in window) {
+          caches.keys().then(function(names) {
+            names.forEach(function(name) {
+              caches.delete(name);
+            });
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
